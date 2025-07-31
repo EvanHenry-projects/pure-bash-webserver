@@ -185,14 +185,11 @@ process_request() {
 	exec {fd}>&-
 }
 
-
-
 main() {
-	enable accept || fatal 'failed to load accept'
+    enable accept || fatal 'failed to load accept'
+    echo "listening on http://$ADDRESS:$PORT"
 
-	echo "listening on http://$ADDRESS:$PORT"
-
-	local fd ip
+    local fd ip
     while true; do
         accept -b "$ADDRESS" -v fd -r ip "$PORT" || fatal 'failed to read socket'
         process_request "$fd"
