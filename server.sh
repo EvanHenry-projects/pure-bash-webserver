@@ -1,5 +1,7 @@
 #! /opt/homebrew/bin/bash
 
+# Webserver written is pure bash 5.3
+
 declare -A MIME_TYPES=(
   [html]="text/html"
   [htm]="text/html"
